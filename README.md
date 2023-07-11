@@ -19,10 +19,10 @@ To decrypt:
 
 perl -I. ssc_main.pl input.cipher output.plain key\_file
 
-NOTE: * You will be prompted for a non-echoed key password which is not
-        saved.
-      * The key\_file is generated in the encryption step and is an encrypted file
-        using the supplied password.
+## NOTE: 
+
+* You will be prompted for a non-echoed key password which is not saved.
+* The key\_file is generated in the encryption step and is an encrypted file using the supplied password.
         
 ## Author
 Roger Doss
