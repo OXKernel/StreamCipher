@@ -37,7 +37,6 @@ sub get_key {
 
   chomp $content;
   @numbers = split ' ', $content;
-  #print "get_key: ", @numbers, "\n";
   return \@numbers;
 }
 
@@ -57,8 +56,6 @@ sub get_key_from_file {
   my $keyin = $ke->read_file($key_file);
   my $plaintext = $ke->decrypt($keyin);
   @numbers = split ' ', $plaintext;
-  # DEBUG
-  #print "get_key_from_file: ", @numbers, "\n";
   return \@numbers;
 }
 
@@ -81,10 +78,6 @@ sub save_key {
     # Build string with key in it using integers separated by tab.
     $keyout .= sprintf("%d ", $numbers[$i]);
   }
-  # DEBUG
-  #print "save_key: [$keyout]\n";
-  my $len = length($keyout);
-  #print "save_key: len=$len\n";
   # Encrypt, and write to disk.
   my $ciphertext = $ke->encrypt($keyout);
   $ke->write_file($key_file_name, $ciphertext);

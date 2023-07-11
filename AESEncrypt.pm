@@ -74,13 +74,9 @@ sub pad_data {
   # Pad the plaintext to make multiple of 16 bytes.
   if(length($plaintext) % 16) {
     my $currentLen = length($plaintext);
-    #print "$currentLen\n";
     my $curr = int($currentLen / 16);
-    #print "curr<1>=$curr\n";
     $curr++;
-    #print "curr<2>=$curr\n";
     $curr *= 16;
-    #print "curr<3>=$curr\n";
     for(my $i = 0; $i < ($curr - $currentLen); ++$i) {
       #print "padding...$i \n";
       # Get random, non-negative integer.
@@ -89,7 +85,6 @@ sub pad_data {
         $r *= -1;
         $r++;
       }
-      #$plaintext .= ' '; # TODO: Correct this, might be because rand is negative... (rand() % 26) + 65; # Add to ascii 'A' to get random all caps alphabet.
       $plaintext .= ($r % 26) + 65; # Add to ascii 'A' to get random all caps alphabet.
     }
   }
@@ -111,8 +106,6 @@ sub encrypt {
   my $len = length($plaintext);
   $plaintext = pad_data($self, $plaintext);
   my $len2 = length($plaintext);
-  #print "len=",$len,"\n";
-  #print "len2=",$len2,"\n";
   # password must be 16 bytes, 24, or 32
   my $password_len = length($password);
   if(!($password_len == 16 or $password_len == 24 or $password_len == 32)) {
@@ -147,22 +140,16 @@ sub decrypt {
 
   # Extract actual size header.
   my $len = int(substr($ciphertext, 0, $SIZE_LEN));
-  #print "decrypt: len=$len\n";
   # Get only the cipher text.
   $ciphertext = substr($ciphertext, $SIZE_LEN, length($ciphertext) - $SIZE_LEN);
   my $len2 = int($len / 16);
   if($len % 16) {
-    #print "decrypt: len2=$len2\n";
     $len2++;
-    #print "decrypt: len2=$len2\n";
     $len2 *= 16;
-    #print "decrypt: len2=$len2\n";
   } else {
     $len2 = $len;
   }
   # Should be multiple of 32 as prior padding was applied.
-  #$ciphertext = pad_data($self, $ciphertext); 
-  #print "len=",$len,"\n";
 
   # password must be 16 bytes, 24, or 32
   my $password_len = length($password);
@@ -172,7 +159,6 @@ sub decrypt {
   }
   my $cipher = Crypt::Cipher::AES->new($password);
   #print "key=",$cipher->keysize,"\n";
-  #print "decrypt: len2=$len2\n";
   my $blocks = int($len2 / 16);
   my $plaintext = "";
   my $start = 0;
