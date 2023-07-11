@@ -48,22 +48,19 @@ sub prompt_for_password {
     my $self = shift;
     my $prompt = shift;
 
-    # Tell the terminal not to show the typed chars
+    # The terminal should not echo characters.
     Term::ReadKey::ReadMode('noecho');
 
     print $prompt;
     my $password = Term::ReadKey::ReadLine(0);
 
-    # Rest the terminal to what it was previously doing
+    # Reset the terminal to it's prior state.
     Term::ReadKey::ReadMode('restore');
 
-    # The one you typed didn't echo!
     print "\n";
 
-    # get rid of that pesky line ending (and works on Windows)
+    # remove line endings.
     $password =~ s/\R\z//;
-
-    # say "Password was <$password>"; # check what you are doing :)
 
     return $password;
 }
