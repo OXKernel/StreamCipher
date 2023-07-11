@@ -13,11 +13,11 @@ at a time.
 
 To encrypt:
 
-perl ssc.pl input.plain  output.cipher
+perl -I. ssc_main.pl input.plain  output.cipher
 
 To decrypt:
 
-perl ssc.pl input.cipher output.plain key\_file
+perl -I. ssc_main.pl input.cipher output.plain key\_file
 
 NOTE: You will be prompted for a non-echoed key password which is not
       saved.
