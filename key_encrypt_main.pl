@@ -7,8 +7,6 @@ if ($#ARGV != 1) {
   exit(0);
 }
 
-#print "$ARGV[0] $ARGV[1]\n";
-
 my $ke = AESEncrypt->new;
 
 if ($ARGV[0] eq "-e") {
