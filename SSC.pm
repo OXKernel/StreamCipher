@@ -75,7 +75,7 @@ sub save_key {
   my $ke = AESEncrypt->new;
   my $keyout = "";
   for (my $i=0; $i <= $#numbers; $i++) {
-    # Build string with key in it using integers separated by tab.
+    # Build string with key in it using integers separated by space.
     $keyout .= sprintf("%d ", $numbers[$i]);
   }
   # Encrypt, and write to disk.
