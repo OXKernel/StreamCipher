@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# Copyright (C) 2023. Roger Doss. All Rights Reserved.
+# Provided under MIT License.
 use SSC;
 package main;
 
