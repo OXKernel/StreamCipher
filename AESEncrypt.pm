@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 #
+# Copyright (C) 2023. Roger Doss. All Rights Reserved.
+# Provided under MIT License.
+#
 # @description:
 #
 #   Perl module to use AES to encrypt arbitrary data. Expects
