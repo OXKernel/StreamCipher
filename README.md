@@ -26,3 +26,5 @@ perl -I. ssc_main.pl input.cipher output.plain key\_file
         
 ## Author
 Roger Doss
+
+opensource [at] rdoss [dot] com
