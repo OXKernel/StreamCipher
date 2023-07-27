@@ -26,7 +26,7 @@ perl -I. ssc_main.pl input.cipher output.plain key\_file
 
 ## Security:
 
-No claim is being made as to the security of this algorithm or it's implementation. Future research is needed.
+No claim is being made as to the security of this algorithm or it's implementation. The software is being provided AS-IS. Future research is needed.
 
 ## Author
 Roger Doss
