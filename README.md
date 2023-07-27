@@ -23,7 +23,11 @@ perl -I. ssc_main.pl input.cipher output.plain key\_file
 
 * You will be prompted for a non-echoed key password which is not saved.
 * The key\_file is generated in the encryption step and is an encrypted file using the supplied password.
-        
+
+## Security:
+
+No claim is being made as to the security of this algorithm or it's implementation. Future research is needed.
+
 ## Author
 Roger Doss
 
