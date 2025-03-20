@@ -1,5 +1,25 @@
 #!/usr/bin/perl
 #
+# Copyright (C) 2023. Roger Doss. All Rights Reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
 # @description:
 #
 #   Perl module to use AES to encrypt arbitrary data. Expects
@@ -48,22 +68,19 @@ sub prompt_for_password {
     my $self = shift;
     my $prompt = shift;
 
-    # Tell the terminal not to show the typed chars
+    # The terminal should not echo characters.
     Term::ReadKey::ReadMode('noecho');
 
     print $prompt;
     my $password = Term::ReadKey::ReadLine(0);
 
-    # Rest the terminal to what it was previously doing
+    # Reset the terminal to it's prior state.
     Term::ReadKey::ReadMode('restore');
 
-    # The one you typed didn't echo!
     print "\n";
 
-    # get rid of that pesky line ending (and works on Windows)
+    # remove line endings.
     $password =~ s/\R\z//;
-
-    # say "Password was <$password>"; # check what you are doing :)
 
     return $password;
 }

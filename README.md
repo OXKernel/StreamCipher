@@ -2,25 +2,33 @@
 
 ## Usage
 
-###To test AES encryption (which is used in encrypting the SSC key):
+### To test AES encryption (which is used in encrypting the SSC key):
 
 perl -I. key\_encrypt\_main.pl -e|-d key\_file received
 
 Where -e is encrypt and -d is decrypt. Only one mode can be selected
 at a time.
 
-###To run the SSC encryption:
+### To run the SSC encryption:
 
 To encrypt:
 
-perl ssc.pl input.plain  output.cipher
+perl -I. ssc_main.pl input.plain  output.cipher
 
 To decrypt:
 
-perl ssc.pl input.cipher output.plain key\_file
+perl -I. ssc_main.pl input.cipher output.plain key\_file
 
-NOTE: You will be prompted for a non-echoed key password which is not
-      saved.
+## NOTE: 
 
-##Author
+* You will be prompted for a non-echoed key password which is not saved.
+* The key\_file is generated in the encryption step and is an encrypted file using the supplied password.
+
+## Security:
+
+No claim is being made as to the security of this algorithm or it's implementation. The software is being provided AS-IS. Future research is needed.
+
+## Author
 Roger Doss
+
+opensource [at] rdoss [dot] com
